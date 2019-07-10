@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="net.aucutt.creamedcorn">
+
+    <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity
+                android:name=".CreamCornActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:label="@string/title_activity_cream_corn"
+                android:theme="@style/FullscreenTheme">
+            <intent-filter android:label="corn">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data android:scheme="http"
+                      android:host="www.aucutt.net"
+                      android:pathPrefix="/corn" />
+                <!-- note that the leading "/" is required for pathPrefix
+                  adb shell am start -W -a android.intent.actions.VIEW -d "http://corn" net.aucutt.creamedcorn
+
+                -->
+            </intent-filter>
+            <intent-filter android:label="corns">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data android:scheme="corn"
+                      android:host="cream" />
+                <!-- note that the leading "/" is required for pathPrefix
+
+               adb shell am start -W -a android.intent.action.VIEW -d "corn://cream" net.aucutt.creamedcorn
+
+             -->
+            </intent-filter>
+        </activity>
+        <activity android:name=".WarningActivity">
+        </activity>
+        <activity
+                android:name=".MainActivity"
+                android:label="@string/app_name"
+                android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <meta-data android:name="com.google.android.actions"
+                   android:resource="@xml/actions" />
+    </application>
+
+</manifest>

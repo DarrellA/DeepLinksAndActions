@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actions>
+
+
+    <action intentName="actions.intent.GET_ORDER">
+        <fulfillment urlTemplate="corn://cream">
+        </fulfillment>
+    </action>
+
+</actions>
